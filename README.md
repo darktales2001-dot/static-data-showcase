@@ -1,73 +1,169 @@
-# Welcome to your Lovable project
+# ICVGIP 2025 Conference Schedule
 
-## Project info
+A polished, responsive single-page React application displaying the ICVGIP 2025 conference schedule. All data is hard-coded - no runtime network requests.
 
-**URL**: https://lovable.dev/projects/c23e87b2-5e8e-40b6-9fa3-132b0943aed6
+## Features
 
-## How can I edit this code?
+- 📅 **Schedule View**: Browse all sessions with search, category filters, tag filters, and pagination
+- 📆 **Calendar View**: Interactive FullCalendar with month/week/day views
+- 🎨 **Modern Design**: Glassmorphism effects, soft gradients, smooth animations
+- 🌓 **Dark/Light Mode**: Theme persisted to localStorage
+- 📱 **Responsive**: Mobile-first design, works on all devices
+- ♿ **Accessible**: Semantic HTML, ARIA labels, keyboard navigation, focus traps
+- 📥 **Data Export**: Download schedule as JSON or CSV
+- 🔗 **Deep Links**: Direct links to sessions and events work without network
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Vite** + **React 18** + **TypeScript**
+- **React Router v6** for routing
+- **Tailwind CSS** for styling
+- **FullCalendar** for calendar view
+- **Framer Motion** for animations
+- **shadcn/ui** components
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c23e87b2-5e8e-40b6-9fa3-132b0943aed6) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ and npm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd <project-folder>
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/          # React components
+│   ├── Header.tsx       # Navigation header with search
+│   ├── Footer.tsx       # Footer with export buttons
+│   ├── ItemCard.tsx     # Session card component
+│   ├── ItemList.tsx     # Session list with filters
+│   ├── SearchBar.tsx    # Filter controls
+│   ├── Pagination.tsx   # Pagination component
+│   ├── EventModal.tsx   # Calendar event modal
+│   ├── CalendarLegend.tsx # Event category legend
+│   └── PageTransition.tsx # Framer Motion wrapper
+├── contexts/
+│   └── AppContext.tsx   # Global state management
+├── data/
+│   ├── data.ts          # Hard-coded schedule data
+│   └── events.ts        # Hard-coded calendar events
+├── pages/
+│   ├── Index.tsx        # Home/Schedule page
+│   ├── Detail.tsx       # Session detail page
+│   ├── CalendarPage.tsx # Calendar view
+│   ├── EventDetail.tsx  # Event detail page
+│   ├── About.tsx        # About page
+│   └── NotFound.tsx     # 404 page
+├── index.css            # Design system & Tailwind
+└── App.tsx              # Root component with routing
+```
 
-This project is built with:
+## Updating Data
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Schedule Data (`src/data/data.ts`)
 
-## How can I deploy this project?
+Edit the `DATA` array to update conference sessions:
 
-Simply open [Lovable](https://lovable.dev/projects/c23e87b2-5e8e-40b6-9fa3-132b0943aed6) and click on Share -> Publish.
+```typescript
+export const DATA: DataItem[] = [
+  {
+    id: '1',
+    name: 'session-slug',
+    title: 'Session Title',
+    shortDescription: 'Brief description...',
+    fullDescription: 'Full details...',
+    category: 'Oral Session', // Must match CATEGORIES
+    date: '2025-12-17',
+    time: '9:00 AM - 10:30 AM',
+    venue: 'Auditorium',
+    speaker: 'Dr. Name', // Optional
+    tags: ['research', 'day-1'],
+  },
+  // ... more items
+];
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Calendar Events (`src/data/events.ts`)
 
-Yes, you can!
+Edit the `EVENTS` array to update calendar events:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```typescript
+export const EVENTS: CalendarEvent[] = [
+  {
+    id: 'evt-1',
+    title: 'Event Title',
+    start: '2025-12-17T09:00:00',
+    end: '2025-12-17T10:30:00',
+    allDay: false,
+    category: 'Oral Session',
+    description: 'Event description...',
+    location: 'Auditorium',
+    color: '#0ea5e9', // Use EVENT_COLORS or custom hex
+    speaker: 'Dr. Name', // Optional
+  },
+  // ... more events
+];
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home - Schedule list with filters |
+| `/item/:id` | Session detail page |
+| `/calendar` | Calendar view |
+| `/calendar/event/:id` | Event detail page |
+| `/about` | About the conference |
+
+## Acceptance Checklist
+
+- [x] `npm run dev` starts the app
+- [x] Home page lists items from `src/data/data.ts`
+- [x] `/item/:id` loads without network requests
+- [x] `/calendar/event/:id` loads without network requests
+- [x] Calendar renders events from `src/data/events.ts`
+- [x] Event colors display correctly
+- [x] Event modal shows full details
+- [x] Search/filter/pagination works
+- [x] Back navigation preserves state
+- [x] No runtime calls to Google Sheets or external APIs
+- [x] Dark/light theme toggle persisted to localStorage
+- [x] CSV/JSON download buttons work
+- [x] Responsive on mobile and desktop
+- [x] Accessible (keyboard nav, ARIA, focus trap)
+
+## Testing
+
+Run the date validation test:
+
+```typescript
+import { validateEventDates } from './src/data/events';
+console.log('All dates valid:', validateEventDates()); // Should be true
+```
+
+## License
+
+MIT
