@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Clock, MapPin, User } from "lucide-react";
 
 interface SessionCardProps {
   title: string;
@@ -15,39 +15,46 @@ interface SessionCardProps {
 
 const variantStyles = {
   oral: {
-    card: "bg-session-oral-bg border-session-oral/20 hover:border-session-oral/50 hover:shadow-md",
-    badge: "bg-session-oral text-white",
+    card: "bg-gradient-to-br from-session-oral-bg to-white dark:to-card border-session-oral/20 hover:border-session-oral/40",
+    accent: "bg-session-oral",
     icon: "text-session-oral",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-oral)/0.3)]",
   },
   poster: {
-    card: "bg-session-poster-bg border-session-poster/20 hover:border-session-poster/50 hover:shadow-md",
-    badge: "bg-session-poster text-white",
+    card: "bg-gradient-to-br from-session-poster-bg to-white dark:to-card border-session-poster/20 hover:border-session-poster/40",
+    accent: "bg-session-poster",
     icon: "text-session-poster",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-poster)/0.3)]",
   },
   vision: {
-    card: "bg-session-vision-bg border-session-vision/20 hover:border-session-vision/50 hover:shadow-md",
-    badge: "bg-session-vision text-white",
+    card: "bg-gradient-to-br from-session-vision-bg to-white dark:to-card border-session-vision/20 hover:border-session-vision/40",
+    accent: "bg-session-vision",
     icon: "text-session-vision",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-vision)/0.3)]",
   },
   industry: {
-    card: "bg-session-industry-bg border-session-industry/20 hover:border-session-industry/50 hover:shadow-md",
-    badge: "bg-session-industry text-white",
+    card: "bg-gradient-to-br from-session-industry-bg to-white dark:to-card border-session-industry/20 hover:border-session-industry/40",
+    accent: "bg-session-industry",
     icon: "text-session-industry",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-industry)/0.3)]",
   },
   plenary: {
-    card: "bg-session-plenary-bg border-session-plenary/20 hover:border-session-plenary/50 hover:shadow-md",
-    badge: "bg-session-plenary text-white",
+    card: "bg-gradient-to-br from-session-plenary-bg to-white dark:to-card border-session-plenary/20 hover:border-session-plenary/40",
+    accent: "bg-session-plenary",
     icon: "text-session-plenary",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-plenary)/0.3)]",
   },
   break: {
-    card: "bg-session-break-bg border-session-break/20 hover:border-session-break/50 hover:shadow-md",
-    badge: "bg-session-break text-white",
+    card: "bg-gradient-to-br from-session-break-bg to-white dark:to-card border-session-break/20 hover:border-session-break/40",
+    accent: "bg-session-break",
     icon: "text-session-break",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-break)/0.3)]",
   },
   workshop: {
-    card: "bg-session-workshop-bg border-session-workshop/20 hover:border-session-workshop/50 hover:shadow-md",
-    badge: "bg-session-workshop text-white",
+    card: "bg-gradient-to-br from-session-workshop-bg to-white dark:to-card border-session-workshop/20 hover:border-session-workshop/40",
+    accent: "bg-session-workshop",
     icon: "text-session-workshop",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-workshop)/0.3)]",
   },
 };
 
@@ -67,39 +74,52 @@ export function SessionCard({
     <Link
       to={link}
       className={cn(
-        "group flex flex-col rounded-xl border p-4 transition-all duration-200",
-        styles.card
+        "group relative flex flex-col rounded-2xl border p-5 transition-all duration-500 hover:-translate-y-1",
+        styles.card,
+        styles.glow
       )}
     >
-      <div className="flex items-start justify-between gap-3">
+      {/* Top accent bar */}
+      <div className={cn("absolute top-0 left-6 right-6 h-1 rounded-b-full", styles.accent)} />
+      
+      <div className="flex items-start justify-between gap-3 mt-2">
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
+          {/* Icon and Title */}
+          <div className="flex items-center gap-2.5 mb-3">
             {icon && (
-              <span className={cn("flex-shrink-0", styles.icon)}>
+              <div className={cn(
+                "flex items-center justify-center w-9 h-9 rounded-xl bg-white/80 dark:bg-card shadow-sm",
+                styles.icon
+              )}>
                 {icon}
-              </span>
+              </div>
             )}
-            <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+            <h3 className="font-semibold text-foreground group-hover:gradient-text transition-all duration-300 line-clamp-2">
               {title}
             </h3>
           </div>
           
+          {/* Speaker */}
           {speaker && (
-            <p className="text-sm font-medium text-foreground/80 mb-1.5">
-              {speaker}
-            </p>
+            <div className="flex items-center gap-2 mb-2">
+              <User className="h-3.5 w-3.5 text-muted-foreground" />
+              <p className="text-sm font-medium text-foreground/80">
+                {speaker}
+              </p>
+            </div>
           )}
           
+          {/* Time and Location */}
           {(time || location) && (
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-2">
               {time && (
-                <span className="flex items-center gap-1">
+                <span className="flex items-center gap-1.5 bg-white/50 dark:bg-white/10 px-2 py-1 rounded-lg">
                   <Clock className="h-3 w-3" />
                   {time}
                 </span>
               )}
               {location && (
-                <span className="flex items-center gap-1">
+                <span className="flex items-center gap-1.5 bg-white/50 dark:bg-white/10 px-2 py-1 rounded-lg">
                   <MapPin className="h-3 w-3" />
                   {location}
                 </span>
@@ -107,14 +127,18 @@ export function SessionCard({
             </div>
           )}
           
+          {/* Description */}
           {description && (
-            <p className="text-sm text-muted-foreground line-clamp-2">
+            <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
               {description}
             </p>
           )}
         </div>
         
-        <ArrowRight className="h-4 w-4 flex-shrink-0 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
+        {/* Arrow */}
+        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/50 dark:bg-white/10 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+          <ArrowRight className="h-4 w-4 text-foreground" />
+        </div>
       </div>
     </Link>
   );

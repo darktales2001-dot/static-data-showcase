@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { ScheduleImage } from "@/components/ScheduleImage";
 import { DaySchedule, Session } from "@/components/DaySchedule";
-import { Calendar, ChevronRight, Mic, Image, Eye, Building2, Award, Coffee, Wrench } from "lucide-react";
+import { Calendar, MapPin, Users, Sparkles, Mic, Image, Eye, Building2, Award, Coffee, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import scheduleImage from "@/assets/schedule.png";
 
@@ -83,6 +83,13 @@ const legendItems = [
   { label: "Break", color: "bg-session-break", icon: Coffee },
 ];
 
+const stats = [
+  { icon: Calendar, label: "Days", value: "4" },
+  { icon: Users, label: "Sessions", value: "30+" },
+  { icon: Award, label: "Keynotes", value: "5" },
+  { icon: MapPin, label: "Venue", value: "IIT" },
+];
+
 export default function Index() {
   const [activeDay, setActiveDay] = useState("dec18");
   const currentSchedule = scheduleData[activeDay];
@@ -90,76 +97,123 @@ export default function Index() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <div className="mb-8 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-4">
-          <Calendar className="h-4 w-4" />
-          December 17-20, 2025
+      <section className="relative mb-12">
+        {/* Hero Content */}
+        <div className="text-center max-w-4xl mx-auto">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full gradient-primary px-5 py-2 text-sm font-medium text-white shadow-lg mb-6 animate-fade-in-up">
+            <Sparkles className="h-4 w-4" />
+            December 17-20, 2025
+          </div>
+          
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 animate-fade-in-up animation-delay-100">
+            ICVGIP 2025
+            <span className="block gradient-text mt-2">Program Schedule</span>
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
+            Indian Conference on Computer Vision, Graphics and Image Processing
+          </p>
+          
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in-up animation-delay-300">
+            {stats.map((stat, index) => (
+              <div 
+                key={stat.label}
+                className="glass rounded-2xl p-4 hover-lift"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl gradient-primary mx-auto mb-2 shadow-md">
+                  <stat.icon className="h-5 w-5 text-white" />
+                </div>
+                <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <h1 className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl font-serif mb-3">
-          ICVGIP 2025 Program Schedule
-        </h1>
-        <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-          Indian Conference on Computer Vision, Graphics and Image Processing
-        </p>
-        <p className="text-sm text-muted-foreground mt-1">
-          Venue: Auditorium Complex
-        </p>
-      </div>
+      </section>
 
       {/* Schedule Image */}
-      <div className="mb-10">
-        <ScheduleImage
-          src={scheduleImage}
-          alt="ICVGIP 2025 Program Schedule"
-        />
-      </div>
+      <section className="mb-12 animate-fade-in-up animation-delay-400">
+        <div className="glass rounded-3xl p-2 shadow-xl">
+          <ScheduleImage
+            src={scheduleImage}
+            alt="ICVGIP 2025 Program Schedule"
+          />
+        </div>
+      </section>
 
-      {/* Day Tabs */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-foreground">Daily Schedule</h2>
+      {/* Day Selector */}
+      <section className="mb-8">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-foreground">Daily Schedule</h2>
         </div>
         
-        {/* Day Selector */}
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          {dayTabs.map((tab) => (
+        {/* Day Tabs */}
+        <div className="flex gap-3 overflow-x-auto pb-2">
+          {dayTabs.map((tab, index) => (
             <button
               key={tab.key}
               onClick={() => setActiveDay(tab.key)}
               className={cn(
-                "flex flex-col items-center px-4 py-3 rounded-xl border-2 transition-all min-w-[80px]",
+                "relative flex flex-col items-center px-6 py-4 rounded-2xl border-2 transition-all duration-300 min-w-[100px] group",
                 activeDay === tab.key
-                  ? "bg-primary text-primary-foreground border-primary shadow-md"
-                  : "bg-card border-border hover:border-primary/50 hover:bg-secondary/50"
+                  ? "gradient-primary text-white border-transparent shadow-xl scale-105"
+                  : "bg-card/50 border-border/50 hover:border-primary/30 hover:bg-card hover:shadow-lg"
               )}
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              <span className="text-[10px] uppercase tracking-wide opacity-70">{tab.shortLabel}</span>
-              <span className="font-bold text-lg">{tab.label.split(" ")[1]}</span>
-              <span className="text-xs opacity-80">{tab.day}</span>
+              {activeDay === tab.key && (
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-pulse-soft" />
+              )}
+              <span className={cn(
+                "text-[10px] uppercase tracking-widest mb-1",
+                activeDay === tab.key ? "text-white/70" : "text-muted-foreground"
+              )}>
+                {tab.shortLabel}
+              </span>
+              <span className="font-bold text-2xl">{tab.label.split(" ")[1]}</span>
+              <span className={cn(
+                "text-xs mt-1",
+                activeDay === tab.key ? "text-white/80" : "text-muted-foreground"
+              )}>
+                {tab.day}
+              </span>
             </button>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Legend */}
-      <div className="mb-6 p-4 rounded-xl bg-secondary/50 border border-border">
-        <div className="flex flex-wrap items-center gap-4">
-          <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Legend:</span>
-          {legendItems.map((item) => (
-            <div key={item.label} className="flex items-center gap-1.5">
-              <div className={cn("w-3 h-3 rounded-full", item.color)} />
-              <span className="text-xs text-muted-foreground">{item.label}</span>
-            </div>
-          ))}
+      <section className="mb-8">
+        <div className="glass rounded-2xl p-5">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Legend</span>
+            <div className="w-px h-4 bg-border" />
+            {legendItems.map((item) => (
+              <div key={item.label} className="flex items-center gap-2 group">
+                <div className={cn(
+                  "w-3 h-3 rounded-full transition-transform duration-300 group-hover:scale-125",
+                  item.color
+                )} />
+                <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Current Day Schedule */}
-      <div className="mb-8">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="h-8 w-1 rounded-full bg-primary" />
+      <section className="mb-8">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-12 w-1.5 rounded-full gradient-primary" />
           <div>
-            <h3 className="font-semibold text-foreground">{currentSchedule.day}</h3>
+            <h3 className="text-xl font-bold text-foreground">{currentSchedule.day}</h3>
             <p className="text-sm text-muted-foreground">{currentSchedule.date}</p>
           </div>
         </div>
@@ -169,7 +223,7 @@ export default function Index() {
           date={currentSchedule.date}
           sessions={currentSchedule.sessions}
         />
-      </div>
+      </section>
     </PageLayout>
   );
 }
