@@ -43,11 +43,27 @@ export default {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
   			},
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			sidebar: {
+			card: {
+				DEFAULT: 'hsl(var(--card))',
+				foreground: 'hsl(var(--card-foreground))'
+			},
+			session: {
+				oral: 'hsl(var(--session-oral))',
+				'oral-bg': 'hsl(var(--session-oral-bg))',
+				poster: 'hsl(var(--session-poster))',
+				'poster-bg': 'hsl(var(--session-poster-bg))',
+				vision: 'hsl(var(--session-vision))',
+				'vision-bg': 'hsl(var(--session-vision-bg))',
+				industry: 'hsl(var(--session-industry))',
+				'industry-bg': 'hsl(var(--session-industry-bg))',
+				plenary: 'hsl(var(--session-plenary))',
+				'plenary-bg': 'hsl(var(--session-plenary-bg))',
+				break: 'hsl(var(--session-break))',
+				'break-bg': 'hsl(var(--session-break-bg))',
+				workshop: 'hsl(var(--session-workshop))',
+				'workshop-bg': 'hsl(var(--session-workshop-bg))',
+			},
+			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',
   				primary: 'hsl(var(--sidebar-primary))',
