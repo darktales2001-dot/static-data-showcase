@@ -38,21 +38,14 @@ export function PageLayout({
         {children}
       </main>
       
-      <footer className="relative border-t border-border/50 bg-card/50 backdrop-blur-sm py-8 mt-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">IC</span>
-              </div>
-              <div>
-                <p className="font-semibold text-foreground">ICVGIP 2025</p>
-                <p className="text-xs text-muted-foreground">December 17-20, 2025</p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground text-center md:text-right">Indian Conference on Computer Vision, Graphics and Image Processing 
-Developed By: Anuj Sisodiya & Anant Mishra</p>
-          </div>
+      <footer className="relative border-t border-border/50 bg-card/50 backdrop-blur-sm py-6 mt-12">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            Indian Conference on Computer Vision, Graphics and Image Processing
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Developed By: Anuj Sisodiya & Anant Dev
+          </p>
         </div>
       </footer>
     </div>;
