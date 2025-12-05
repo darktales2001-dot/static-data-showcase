@@ -9,6 +9,9 @@ import OralSessions from "./pages/OralSessions";
 import PosterSessions from "./pages/PosterSessions";
 import TinyPapers from "./pages/TinyPapers";
 import AcceptedPapers from "./pages/AcceptedPapers";
+import IndustrySessions from "./pages/IndustrySessions";
+import Workshops from "./pages/Workshops";
+import Tutorials from "./pages/Tutorials";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +29,9 @@ const App = () => (
           <Route path="/poster-sessions" element={<PosterSessions />} />
           <Route path="/tiny-papers" element={<TinyPapers />} />
           <Route path="/accept" element={<AcceptedPapers />} />
+          <Route path="/industry-sessions" element={<IndustrySessions />} />
+          <Route path="/workshops" element={<Workshops />} />
+          <Route path="/tutorials" element={<Tutorials />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
