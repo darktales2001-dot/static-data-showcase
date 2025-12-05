@@ -50,7 +50,7 @@ export function PageLayout({
                 Indian Conference on Computer Vision, Graphics and Image Processing
               </p>
               <p className="text-sm text-muted-foreground">
-                Developed By: Anuj Sisodiya & Anant Dev
+                Developed By: Anuj Sisodiya & Anant Dev @IIT Mandi
               </p>
             </div>
           </div>
