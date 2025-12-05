@@ -39,13 +39,21 @@ export function PageLayout({
       </main>
       
       <footer className="relative border-t border-border/50 bg-card/50 backdrop-blur-sm py-6 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-muted-foreground">
-            Indian Conference on Computer Vision, Graphics and Image Processing
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Developed By: Anuj Sisodiya & Anant Dev
-          </p>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <p className="font-semibold text-foreground">ICVGIP 2025</p>
+              <p className="text-xs text-muted-foreground">December 17-20, 2025</p>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-sm text-muted-foreground">
+                Indian Conference on Computer Vision, Graphics and Image Processing
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Developed By: Anuj Sisodiya & Anant Dev
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>;
