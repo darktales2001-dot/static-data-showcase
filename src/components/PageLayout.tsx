@@ -50,7 +50,7 @@ export function PageLayout({
                 <p className="text-xs text-muted-foreground">December 17-20, 2025</p>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground text-center md:text-right">Indian Conference on Computer Vision, Graphics and Image Processing
+            <p className="text-sm text-muted-foreground text-center md:text-right">Indian Conference on Computer Vision, Graphics and Image Processing 
 Developed By: Anuj Sisodiya & Anant Mishra</p>
           </div>
         </div>
