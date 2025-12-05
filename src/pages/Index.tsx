@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { PageLayout } from "@/components/PageLayout";
-import { ScheduleImage } from "@/components/ScheduleImage";
 import { DaySchedule, Session } from "@/components/DaySchedule";
-import { Calendar, MapPin, Users, Sparkles, Mic, Image, Eye, Building2, Award, Coffee, Wrench } from "lucide-react";
+import { Sparkles, Mic, Image, Eye, Building2, Award, Coffee, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
-import scheduleImage from "@/assets/schedule.png";
 
 const scheduleData: Record<string, { day: string; date: string; sessions: Session[] }> = {
   "dec17": {
@@ -83,12 +81,6 @@ const legendItems = [
   { label: "Break", color: "bg-session-break", icon: Coffee },
 ];
 
-const stats = [
-  { icon: Calendar, label: "Days", value: "4" },
-  { icon: Users, label: "Sessions", value: "30+" },
-  { icon: Award, label: "Keynotes", value: "5" },
-  { icon: MapPin, label: "Venue", value: "IIT" },
-];
 
 export default function Index() {
   const [activeDay, setActiveDay] = useState("dec18");
@@ -113,36 +105,9 @@ export default function Index() {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up animation-delay-200">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
             Indian Conference on Computer Vision, Graphics and Image Processing
           </p>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in-up animation-delay-300">
-            {stats.map((stat, index) => (
-              <div 
-                key={stat.label}
-                className="glass rounded-2xl p-4 hover-lift"
-                style={{ animationDelay: `${300 + index * 100}ms` }}
-              >
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl gradient-primary mx-auto mb-2 shadow-md">
-                  <stat.icon className="h-5 w-5 text-white" />
-                </div>
-                <p className="text-2xl font-bold text-foreground">{stat.value}</p>
-                <p className="text-xs text-muted-foreground uppercase tracking-wide">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Schedule Image */}
-      <section className="mb-12 animate-fade-in-up animation-delay-400">
-        <div className="glass rounded-3xl p-2 shadow-xl">
-          <ScheduleImage
-            src={scheduleImage}
-            alt="ICVGIP 2025 Program Schedule"
-          />
         </div>
       </section>
 
