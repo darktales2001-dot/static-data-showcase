@@ -1,0 +1,83 @@
+[
+  {
+    "sessionId": "Industry Session - 1",
+    "duration": "1 hr",
+    "company": "Qualcomm"
+  },
+  {
+    "sessionId": "Industry Session - 1",
+    "duration": "1 hr",
+    "company": "HCL"
+  },
+  {
+    "sessionId": "Industry Session - 1",
+    "duration": "1 hr",
+    "company": "Sony"
+  },
+  {
+    "sessionId": "Industry Session - 1",
+    "duration": "1 hr",
+    "company": "Google"
+  },
+  {
+    "sessionId": "Industry Session - 2",
+    "duration": "1.5 hr",
+    "company": "Industry Expert-1"
+  },
+  {
+    "sessionId": "Industry Session - 2",
+    "duration": "1.5 hr",
+    "company": "Aftershoot"
+  },
+  {
+    "sessionId": "Industry Session - 2",
+    "duration": "1.5 hr",
+    "company": "KLA"
+  },
+  {
+    "sessionId": "Industry Session - 2",
+    "duration": "1.5 hr",
+    "company": "TCS"
+  },
+  {
+    "sessionId": "Industry Session - 2",
+    "duration": "1.5 hr",
+    "company": "Vehant"
+  },
+  {
+    "sessionId": "Industry Session - 3",
+    "duration": "1 hr",
+    "company": "IHUB IIT Mandi"
+  },
+  {
+    "sessionId": "Industry Session - 3",
+    "duration": "1 hr",
+    "company": "IHUB IIITH"
+  },
+  {
+    "sessionId": "Industry Session - 3",
+    "duration": "1 hr",
+    "company": "Adobe"
+  },
+  {
+    "sessionId": "Industry Session - 3",
+    "duration": "1 hr",
+    "company": "Dolby"
+  },
+  {
+    "sessionId": "Industry Session - 4",
+    "duration": "1 hr",
+    "company": "Industry Expert-2"
+  },
+  {
+    "sessionId": "Industry Session - 4",
+    "duration": "1 hr",
+    "company": "Pixophilia"
+  },
+  {
+    "sessionId": "Industry Session - 4",
+    "duration": "1 hr",
+    "company": "BEL"
+  }
+]
+

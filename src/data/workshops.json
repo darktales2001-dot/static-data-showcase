@@ -1,0 +1,31 @@
+[
+  {
+    "workshopId": "W1",
+    "workshopTitle": "Handwritten Document Forensics: Challenges, Advances, and Applications (HDF-2025)",
+    "organizers": "Dr. Soumen Bag, Dr. Prabhat Dansena",
+    "schedule": "Full Day (9-5 PM)",
+    "website": "https://sites.google.com/cgu-odisha.ac.in/whdf/%20home"
+  },
+  {
+    "workshopId": "W2",
+    "workshopTitle": "Constraints, Challenges, and Negative Results in Computer Vision, Graphics, and Multimodal Analysis",
+    "organizers": "Rohit Saluja, Manikandan Ravikiran, Abhishek Sharma",
+    "schedule": "Half Day (2-5:30 PM)",
+    "website": "https://lc4workshop.github.io/visionxfail.html"
+  },
+  {
+    "workshopId": "W3",
+    "workshopTitle": "Beyond Visible: Exploring Infrared and Hyperspectral Domains in Computer Vision 2025 (BViCV'25)",
+    "organizers": "Dr Brejesh Lall, Dr Manoj Sharma, Avinash Upadhyay, Dr Prerana Mukherjee, Dr Swati Hira, Dr Vasundhara Rathore, Dr P. S. Deshpande, Dr Amit Singhal, Dr Ankit Shukla, Vikas Patel",
+    "schedule": "Full day (9-5 PM)",
+    "website": "https://bvicv2025.visualclpl.com/"
+  },
+  {
+    "workshopId": "W4",
+    "workshopTitle": "Indian Language OCR",
+    "organizers": "C. V. Jawahar and Team",
+    "schedule": "Half Day (9-1 PM)",
+    "website": "https://cvit.iiit.ac.in/ocr_icvgip2025"
+  }
+]
+
