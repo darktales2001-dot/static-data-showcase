@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Calendar, Eye, Mic, Image, FileText, CheckCircle, Menu, X, Sparkles } from "lucide-react";
+import { Calendar, Eye, Mic, Image, FileText, CheckCircle, Menu, X, Building2, Wrench, GraduationCap } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
@@ -10,6 +10,9 @@ const navItems = [
   { path: "/poster-sessions", label: "Posters", icon: Image },
   { path: "/tiny-papers", label: "Tiny Papers", icon: FileText },
   { path: "/accept", label: "Accepted", icon: CheckCircle },
+  { path: "/industry-sessions", label: "Industry", icon: Building2 },
+  { path: "/workshops", label: "Workshops", icon: Wrench },
+  { path: "/tutorials", label: "Tutorials", icon: GraduationCap },
 ];
 
 export function TopNav() {
