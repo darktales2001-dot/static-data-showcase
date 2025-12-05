@@ -23,13 +23,7 @@ export function TopNav() {
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative">
-                <div className="h-11 w-11 rounded-xl gradient-primary animate-gradient flex items-center justify-center shadow-lg group-hover:shadow-glow transition-shadow duration-300">
-                  <span className="text-white font-bold text-lg">IC</span>
-                </div>
-                <div className="absolute -top-1 -right-1 h-3 w-3 bg-accent rounded-full animate-pulse-soft" />
-              </div>
-              <div className="hidden sm:block">
+              <div>
                 <h1 className="text-lg font-bold gradient-text">ICVGIP 2025</h1>
                 <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Conference Program</p>
               </div>
