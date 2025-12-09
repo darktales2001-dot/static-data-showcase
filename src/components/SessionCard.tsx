@@ -8,7 +8,7 @@ interface SessionCardProps {
   location?: string;
   description?: string;
   link: string;
-  variant?: "oral" | "poster" | "vision" | "industry" | "plenary" | "break" | "workshop";
+  variant?: "oral" | "poster" | "vision" | "industry" | "plenary" | "break" | "workshop" | "tutorial";
   icon?: React.ReactNode;
   speaker?: string;
 }
@@ -55,6 +55,12 @@ const variantStyles = {
     accent: "bg-session-workshop",
     icon: "text-session-workshop",
     glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-workshop)/0.3)]",
+  },
+  tutorial: {
+    card: "bg-gradient-to-br from-session-tutorial-bg to-white dark:to-card border-session-tutorial/20 hover:border-session-tutorial/40",
+    accent: "bg-session-tutorial",
+    icon: "text-session-tutorial",
+    glow: "group-hover:shadow-[0_8px_30px_-10px_hsl(var(--session-tutorial)/0.3)]",
   },
 };
 
