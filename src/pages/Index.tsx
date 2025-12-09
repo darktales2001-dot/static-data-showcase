@@ -90,7 +90,7 @@ const legendItems = [
 
 
 export default function Index() {
-  const [activeDay, setActiveDay] = useState("dec18");
+  const [activeDay, setActiveDay] = useState("dec17");
   const currentSchedule = scheduleData[activeDay];
 
   return (
