@@ -62,6 +62,8 @@ export default {
 				'break-bg': 'hsl(var(--session-break-bg))',
 				workshop: 'hsl(var(--session-workshop))',
 				'workshop-bg': 'hsl(var(--session-workshop-bg))',
+				tutorial: 'hsl(var(--session-tutorial))',
+				'tutorial-bg': 'hsl(var(--session-tutorial-bg))',
 			},
 			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',

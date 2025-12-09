@@ -49,6 +49,8 @@
     --session-break-bg: 180 70% 96%;
     --session-workshop: 25 95% 53%;
     --session-workshop-bg: 25 95% 97%;
+    --session-tutorial: 290 85% 55%;
+    --session-tutorial-bg: 290 85% 97%;
 
     /* Gradient colors */
     --gradient-1: 250 95% 60%;
@@ -100,6 +102,7 @@
     --session-plenary-bg: 270 91% 12%;
     --session-break-bg: 180 70% 10%;
     --session-workshop-bg: 25 95% 10%;
+    --session-tutorial-bg: 290 85% 12%;
   }
 }
 

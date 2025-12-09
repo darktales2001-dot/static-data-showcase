@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { DaySchedule, Session } from "@/components/DaySchedule";
-import { Sparkles, Mic, Image, Eye, Building2, Award, Coffee, Wrench } from "lucide-react";
+import { Sparkles, Mic, Image, Eye, Building2, Award, Coffee, Wrench, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const scheduleData: Record<string, { day: string; date: string; sessions: Session[] }> = {
@@ -9,11 +9,14 @@ const scheduleData: Record<string, { day: string; date: string; sessions: Sessio
     day: "Day 1",
     date: "December 17, 2025",
     sessions: [
-      { id: "w1", title: "Tutorials & Workshops", time: "10:30 - 11:30 AM", location: "Workshop Halls", description: "T2, T5, T6, W1, W3, W4*", variant: "workshop", link: "/tutorials" },
+      { id: "t1", title: "Tutorials", time: "10:30 - 11:30 AM", location: "Tutorial Halls", description: "T2, T5, T6", variant: "tutorial", link: "/tutorials" },
+      { id: "w1", title: "Workshops", time: "10:30 - 11:30 AM", location: "Workshop Halls", description: "W1, W3, W4*", variant: "workshop", link: "/workshops" },
       { id: "b1", title: "Coffee Break", time: "11:30 AM - 12:00 PM", location: "Foyer", variant: "break", link: "/" },
-      { id: "w2", title: "Tutorials & Workshops (contd.)", time: "12:00 - 1:00 PM", location: "Workshop Halls", description: "T2, T5, T6, W1, W3, W4", variant: "workshop", link: "/tutorials" },
+      { id: "t2", title: "Tutorials (contd.)", time: "12:00 - 1:00 PM", location: "Tutorial Halls", description: "T2, T5, T6", variant: "tutorial", link: "/tutorials" },
+      { id: "w2", title: "Workshops (contd.)", time: "12:00 - 1:00 PM", location: "Workshop Halls", description: "W1, W3, W4", variant: "workshop", link: "/workshops" },
       { id: "l1", title: "Lunch", time: "1:00 - 2:00 PM", location: "Dining Hall", variant: "break", link: "/" },
-      { id: "w3", title: "Tutorials & Workshops", time: "4:00 - 5:30 PM", location: "Workshop Halls", description: "T1, T3, T4, W2, W3, W4", variant: "workshop", link: "/tutorials" },
+      { id: "t3", title: "Tutorials", time: "4:00 - 5:30 PM", location: "Tutorial Halls", description: "T1, T3, T4", variant: "tutorial", link: "/tutorials" },
+      { id: "w3", title: "Workshops", time: "4:00 - 5:30 PM", location: "Workshop Halls", description: "W2, W3, W4", variant: "workshop", link: "/workshops" },
       { id: "s1", title: "Inauguration", time: "5:30 - 6:30 PM", location: "Auditorium", variant: "plenary", link: "/" },
       { id: "d1", title: "Dinner", time: "7:30 PM onwards", location: "Banquet Hall", variant: "break", link: "/" },
     ],
@@ -80,6 +83,7 @@ const legendItems = [
   { label: "Plenary", color: "bg-session-plenary", icon: Award },
   { label: "Vision India", color: "bg-session-vision", icon: Eye },
   { label: "Industry", color: "bg-session-industry", icon: Building2 },
+  { label: "Tutorial", color: "bg-session-tutorial", icon: GraduationCap },
   { label: "Workshop", color: "bg-session-workshop", icon: Wrench },
   { label: "Break", color: "bg-session-break", icon: Coffee },
 ];

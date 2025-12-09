@@ -1,5 +1,5 @@
 import { SessionCard } from "./SessionCard";
-import { Mic, Image, Eye, Building2, Award, Coffee, Wrench } from "lucide-react";
+import { Mic, Image, Eye, Building2, Award, Coffee, Wrench, GraduationCap } from "lucide-react";
 
 export interface Session {
   id: string;
@@ -7,7 +7,7 @@ export interface Session {
   time: string;
   location?: string;
   description?: string;
-  variant: "oral" | "poster" | "vision" | "industry" | "plenary" | "break" | "workshop";
+  variant: "oral" | "poster" | "vision" | "industry" | "plenary" | "break" | "workshop" | "tutorial";
   link: string;
   speaker?: string;
 }
@@ -26,6 +26,7 @@ const variantIcons = {
   plenary: <Award className="h-4 w-4" />,
   break: <Coffee className="h-4 w-4" />,
   workshop: <Wrench className="h-4 w-4" />,
+  tutorial: <GraduationCap className="h-4 w-4" />,
 };
 
 export function DaySchedule({ day, date, sessions }: DayScheduleProps) {
