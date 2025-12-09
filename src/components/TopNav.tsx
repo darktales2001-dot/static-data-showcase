@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Calendar, Eye, Mic, Image, FileText, CheckCircle, Menu, X, Building2, Wrench, GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { path: "/", label: "Schedule", icon: Calendar },
@@ -58,13 +59,16 @@ export function TopNav() {
               })}
             </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2.5 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            {/* Theme Toggle & Mobile Menu Button */}
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                className="lg:hidden p-2.5 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
