@@ -9,7 +9,7 @@ export function PageLayout({
   title,
   description
 }: PageLayoutProps) {
-  return <div className="min-h-screen bg-background relative overflow-hidden">
+  return <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
       {/* Animated background blobs */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="blob blob-1 w-[600px] h-[600px] bg-primary/30 -top-48 -left-48" />
@@ -28,7 +28,7 @@ export function PageLayout({
 
       <TopNav />
       
-      <main className="container mx-auto px-4 py-8 relative">
+      <main className="container mx-auto px-4 py-8 relative flex-1">
         {(title || description) && <div className="mb-8 animate-fade-in-up">
             {title && <h1 className="text-3xl font-bold text-foreground md:text-4xl">
                 {title}
@@ -38,7 +38,7 @@ export function PageLayout({
         {children}
       </main>
       
-      <footer className="relative border-t border-border/50 bg-card/50 backdrop-blur-sm py-6 mt-12">
+      <footer className="relative border-t border-border/50 bg-card/50 backdrop-blur-sm py-6 mt-auto">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
