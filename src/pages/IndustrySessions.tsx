@@ -1,47 +1,12 @@
 import { PageLayout } from "@/components/PageLayout";
-import { DataTable } from "@/components/DataTable";
 import industrySessionsData from "@/data/industrySessions.json";
-import React from "react";
+import { Building2 } from "lucide-react";
 
-interface IndustrySessionEntry {
+interface IndustrySession {
   sessionId: string;
   duration: string;
-  company: string;
+  companies: string[];
 }
-
-const columns: {
-  key: keyof IndustrySessionEntry;
-  header: string;
-  className?: string;
-  render?: (value: IndustrySessionEntry[keyof IndustrySessionEntry], row: IndustrySessionEntry) => React.ReactNode;
-}[] = [
-  {
-    key: "sessionId",
-    header: "Session",
-    className: "min-w-[180px]",
-    render: (value, row) => (
-      <div>
-        <div className="font-medium">{String(value)}</div>
-        <div className="text-xs text-muted-foreground">{row.duration}</div>
-      </div>
-    ),
-  },
-  {
-    key: "company",
-    header: "Company / Expert",
-    className: "min-w-[200px] font-medium",
-  },
-  {
-    key: "duration",
-    header: "Duration",
-    className: "min-w-[100px]",
-    render: (value) => (
-      <span className="inline-flex rounded-full bg-session-industry/10 px-3 py-1 text-xs font-medium text-session-industry">
-        {String(value)}
-      </span>
-    ),
-  },
-];
 
 export default function IndustrySessions() {
   return (
@@ -49,10 +14,43 @@ export default function IndustrySessions() {
       title="Industry Sessions"
       description="Presentations from industry partners"
     >
-      <DataTable<IndustrySessionEntry>
-        data={industrySessionsData}
-        columns={columns}
-      />
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {(industrySessionsData as IndustrySession[]).map((session, index) => (
+          <div
+            key={index}
+            className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            
+            <div className="relative">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {session.sessionId}
+                </h3>
+                {session.duration && (
+                  <span className="inline-flex shrink-0 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                    {session.duration}
+                  </span>
+                )}
+              </div>
+              
+              {session.companies.length > 0 && (
+                <div className="space-y-2">
+                  {session.companies.map((company, companyIndex) => (
+                    <div
+                      key={companyIndex}
+                      className="flex items-center gap-2 text-muted-foreground"
+                    >
+                      <Building2 className="h-4 w-4 text-primary/60" />
+                      <span className="text-sm">{company}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </PageLayout>
   );
 }
