@@ -39,10 +39,10 @@ export default function IndustrySessions() {
                   {session.companies.map((company, companyIndex) => (
                     <div
                       key={companyIndex}
-                      className="flex items-center gap-2 text-muted-foreground"
+                      className="flex items-center gap-2"
                     >
-                      <Building2 className="h-4 w-4 text-primary/60" />
-                      <span className="text-sm">{company}</span>
+                      <Building2 className="h-4 w-4 text-primary" />
+                      <span className="text-sm font-medium text-foreground">{company}</span>
                     </div>
                   ))}
                 </div>
