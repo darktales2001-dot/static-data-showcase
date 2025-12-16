@@ -4,6 +4,7 @@
     "tutorialTitle": "Visual SLAM for Autonomous Driving and Flying",
     "speaker": "Lokender Tiwari (TCS Research)",
     "slot": "2-5:30 PM",
+    "venue": "A17-2A",
     "website": "https://lokender.github.io/tutorials/ICVGIP2025-Tutorial-VisualSLAM.html"
   },
   {
@@ -11,6 +12,7 @@
     "tutorialTitle": "Advances and Challenges in Real-World Video Restoration",
     "speaker": "Dolby Team",
     "slot": "9-1 PM",
+    "venue": "A17-1B",
     "website": "https://aupendu.github.io/video-restore-tutorial"
   },
   {
@@ -18,6 +20,7 @@
     "tutorialTitle": "From Classical to Deep Learning Methods in Image Downscaling",
     "speaker": "Sanjay Ghosh (IIT Kharagpur)",
     "slot": "2-5:30 PM",
+    "venue": "A17-2C",
     "website": "https://img-dwn-scaling.tiiny.site/"
   },
   {
@@ -25,6 +28,7 @@
     "tutorialTitle": "Generative Models for Content Creation, Reconstruction, and Beyond",
     "speaker": "Ankit Dhiman, Badrinath Singhal, AS Anudeep, Rishub Parihar (IISc)",
     "slot": "2-5:30 PM",
+    "venue": "A17-1A",
     "website": "https://howtobuildworldmodels.github.io/"
   },
   {
@@ -32,6 +36,7 @@
     "tutorialTitle": "Mobile Camera Imaging Pipeline: Who/What is seeing through the Lens?",
     "speaker": "Samsung Team",
     "slot": "9-1 PM",
+    "venue": "A17-1A",
     "website": "https://pawanbindigan.github.io/icvgip2025_tutorial/"
   },
   {
@@ -39,7 +44,7 @@
     "tutorialTitle": "AI in neuroimaging: From research to the clinic",
     "speaker": "Dr. Vaanathi Sundaresan (IISc) and Prof. Ragini Verma (UPenn)",
     "slot": "9-1 PM",
+    "venue": "A17-2A",
     "website": "https://aiforneuroimaging-workshop.pages.dev/"
   }
 ]
-

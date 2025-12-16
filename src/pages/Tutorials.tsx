@@ -9,6 +9,7 @@ interface TutorialEntry {
   tutorialTitle: string;
   speaker: string;
   slot: string;
+  venue: string;
   website: string;
 }
 
@@ -48,9 +49,19 @@ const columns: {
   {
     key: "slot",
     header: "Slot",
-    className: "min-w-[120px]",
+    className: "min-w-[100px]",
     render: (value) => (
       <span className="inline-flex rounded-full bg-session-workshop/10 px-3 py-1 text-xs font-medium text-session-workshop">
+        {String(value)}
+      </span>
+    ),
+  },
+  {
+    key: "venue",
+    header: "Venue",
+    className: "min-w-[80px]",
+    render: (value) => (
+      <span className="inline-flex rounded-full bg-muted px-3 py-1 text-xs font-medium text-foreground">
         {String(value)}
       </span>
     ),
