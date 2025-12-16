@@ -9,6 +9,7 @@ interface WorkshopEntry {
   workshopTitle: string;
   organizers: string;
   schedule: string;
+  venue: string;
   website: string;
 }
 
@@ -48,9 +49,19 @@ const columns: {
   {
     key: "schedule",
     header: "Schedule",
-    className: "min-w-[150px]",
+    className: "min-w-[120px]",
     render: (value) => (
       <span className="inline-flex rounded-full bg-session-workshop/10 px-3 py-1 text-xs font-medium text-session-workshop">
+        {String(value)}
+      </span>
+    ),
+  },
+  {
+    key: "venue",
+    header: "Venue",
+    className: "min-w-[80px]",
+    render: (value) => (
+      <span className="inline-flex rounded-full bg-muted px-3 py-1 text-xs font-medium text-foreground">
         {String(value)}
       </span>
     ),
